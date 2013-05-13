@@ -1,0 +1,8 @@
+start on runlevel [345]
+stop on runlevel [S016]
+ 
+respawn
+instance /dev/<%=node[:serial_console][:tty] %>
+exec /sbin/agetty <%=node[:serial_console][:tty] %> <%=node[:serial_console][:baudrate]%> vt100-nav
+ 
+
